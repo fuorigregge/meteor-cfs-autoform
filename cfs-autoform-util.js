@@ -14,7 +14,7 @@ Util = {
   //returns the object that CONTAINS the last property
   deepFind: function(obj, path){
     path = path.split('.');
-    for (i = 0; i < path.length - 1; i++)
+    for (var i = 0; i < path.length - 1; i++)
       obj = obj[path[i]];
 
     return obj;
@@ -22,8 +22,10 @@ Util = {
   //executes closure(obj, prop) where prop might be a string of properties and array indices
   deepDo: function(obj, path, closure){
     path = path.split('.');
-    for (i = 0; i < path.length - 1; i++)
-      obj = obj[path[i]];
+    console.log(obj, path);
+    for (var i = 0; i < path.length - 1; i++) {
+      obj = obj[ path[ i ] ];
+    }
 
     closure.apply(this, [obj, path[i]]);
   }

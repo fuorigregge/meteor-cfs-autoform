@@ -1,13 +1,18 @@
 Hooks = {
     beforeInsert: function(doc) {
         var self = this, template = this.template;
+
+        console.log(doc);
+
         if (! AutoForm.validateForm(this.formId)) {
             return false;
         }
-
         // Loop through all hidden file inputs in the form.
         var totalFiles = 0;
         var arrayFields = {};
+
+        console.log(template.$('.cfsaf-hidden'));
+
         template.$('.cfsaf-hidden').each(function() {
             var elem = $(this);
 
@@ -42,6 +47,7 @@ Hooks = {
                 }
             }
         });
+
 
         // If no files were attached anywhere on the form, we're done.
         // We pass back the doc synchronously

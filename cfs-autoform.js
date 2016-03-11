@@ -45,8 +45,6 @@ if (Meteor.isClient) {
         // we want the schema key tied to the hidden file field only
         delete atts[ "data-schema-key" ];
         atts[ "class" ] = (atts[ "class" ] || "") + " form-control";
-
-        console.log(this.atts);
         return atts;
     }
 
